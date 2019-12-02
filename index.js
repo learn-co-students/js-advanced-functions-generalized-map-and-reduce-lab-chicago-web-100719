@@ -7,13 +7,13 @@ function map(array, work){
     }
     return newArray
 }
-function reduce(src, block, starting){
-    let arr = starting ? starting : src[0]
-    let i = starting ? 0 : 1
-
+function reduce(src, cb, starting){
+    let r = (!!starting) ? starting : src[0]
+    let i = (!!starting) ? 0 : 1
+  
     for (; i < src.length; i++) {
-      arr = block(src[i], arr)
+      r = cb(src[i], r)
     }
-
-    return arr;
-} 
+  
+    return r;
+  }
